@@ -1,0 +1,45 @@
+package SomeFirstPrograms;
+// Program solving the maximum contiguous sum problem in an array with linear complexity. O(N)
+import java.io.*;
+public class MaxSum2{
+	public static void main(String args[])throws IOException{
+		int a[]=new int[5];
+		int maxSum=0;
+		System.out.println("Enter the 5 elements of the array.");
+		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		for(int i=0;i<5;i++){
+			a[i]=Integer.parseInt(in.readLine());
+		}
+		System.out.println("The array you entered is:");
+		for(int i=0;i<a.length;i++){
+			System.out.println(a[i]);
+		}
+		maxSum=calSum(a);
+		System.out.println("The maximum sum:"+maxSum);
+	}
+	// The calSum() method accepts the input array and returns the maxSum.
+	private static int calSum(int[] a) {
+		int maxSum=0;
+		int thisSum=0;
+		int startSeq=0,endSeq=0;
+		for(int i=0,j=0;j<a.length;j++){
+			 thisSum=thisSum+a[j];
+			 if(thisSum>maxSum){
+				 maxSum=thisSum;
+				 startSeq=i;
+				 endSeq=j;
+			 }
+			 if(thisSum<0){// Understand it this way- What if the first element in the array is a big negative no.
+				 //you gotto re-traverse the array from the next index.
+				 thisSum=0;
+				 j=i+1;
+			 }
+		}
+		System.out.println("The starting index of the sequence:"+startSeq);
+		System.out.println("The ending index of the sequence :"+endSeq);
+		return maxSum;	 
+			 
+		}
+		
+	}
+

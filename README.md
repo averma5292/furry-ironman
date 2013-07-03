@@ -1,4 +1,4 @@
 furry-ironman
 =============
 
-Just learning how to make repositories.
+New to GitHub ,Just trying to learn.
